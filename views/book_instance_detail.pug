@@ -1,0 +1,34 @@
+extend layout 
+
+block content 
+    .book_instance_detail 
+        h3 #[strong ID :] #{id}
+
+        p #[strong Book : ] 
+            a(href=book_instance_detail.book.url) #{book_instance_detail.book.title}
+
+        p #[strong Imprint : ] #{book_instance_detail.imprint}
+        p #[strong Status : ] 
+            if book_instance_detail.status=='Available'
+                span.text-success #{book_instance_detail.status}
+            else if book_instance_detail.status=='Maintenance'
+                span.text-danger #{book_instance_detail.status}
+            else
+                span.text-warning #{book_instance_detail.status}
+
+        if book_instance_detail.status != 'Available'    
+            p #[strong Due Back : ] #{book_instance_detail.due_back_formatted}
+
+    hr
+
+    div.Control(style="display:flex; ")
+        p 
+            button.btn.btn-primary
+                a(href=book_instance_detail.url+'/delete' style='color:white;') Delete Book Instance
+
+        p(style="margin-left: 20px")
+            button.btn.btn-primary 
+                a(href=book_instance_detail.url+'/update' style='color:white;') Update Book Instance
+
+
+

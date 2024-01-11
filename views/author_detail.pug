@@ -1,0 +1,30 @@
+extend layout 
+
+block content 
+    .author-detail 
+        h2 #[strong Author : ] #{authorDetail.name}
+
+        p #[strong !{authorDetail.date_of_birth_format}] - #[em #[strong !{authorDetail.date_of_death_format}]]
+
+        .author-books 
+            h3 #[strong Books : ] 
+            dl
+                each book in authorBooks 
+                    dt
+                        a(href=book.url) #{book.title} 
+                    dd #{book.summary}
+                else 
+                    p You are not having any Books.
+
+        hr
+
+        div.Control(style="display:flex; ")
+            p 
+                button.btn.btn-primary
+                    a(href=authorDetail.url+'/delete' style='color:white;') Delete Author
+
+            p(style="margin-left: 20px")
+                button.btn.btn-primary 
+                    a(href=authorDetail.url+'/update' style='color:white;') Update Author
+
+

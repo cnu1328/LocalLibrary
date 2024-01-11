@@ -1,0 +1,53 @@
+extend layout 
+
+block content 
+    .book_detail
+        h1= book.title
+        p #[strong Author ] : 
+            a(href=book.author.url)  #[em !{book.author.name}]
+
+        p #[strong Summary] :  
+            | !{book.summary}
+
+        p #[strong ISBN]  : !{book.isbn}
+
+        p #[strong Genre:] 
+            each genre, index in book.genre
+                a(href=genre.url) #{genre.name}
+                if index < book.genre.length - 1
+                    |   ,
+
+    div(class="copies" style='margin-left: 20px; margin-top: 20x')
+        h4 Copies  
+
+        each copy in book_instance    
+            hr
+            p.copy-title #[strong status : ] 
+            
+            if copy.status== 'Available'
+                p.text-success  #{copy.status}
+            else if copy.status== 'Maintenance'
+                p.text-danger #{copy.status}
+            else 
+                p.text-warning #{copy.status} 
+
+            p #[strong Imprint: ] #{copy.imprint} 
+
+            if copy.status != 'Available'
+                p #[strong Due back : ] #{copy.due_back_formatted}
+
+            p #[strong Id : ]
+                a(href=copy.url) #{copy._id}                 
+
+        else    
+            p There are no cipies of this book in the library.
+
+    hr
+    div.Control(style="display:flex; ")
+        p 
+            button.btn.btn-primary
+                a(href=book.url+'/delete' style='color:white;') Delete Book
+
+        p(style="margin-left: 20px")
+            button.btn.btn-primary 
+                a(href=book.url+'/update' style='color:white;') Update Book

@@ -1,0 +1,22 @@
+extend layout 
+
+block content
+    h1= title
+
+    if bookInstance.length 
+        p #[em #[strong Delete the following Book Instance's before attempting to delete this Book.]]
+        
+        div(class="copies" style='margin-left: 20px; margin-top: 20x')
+            h4 Copies  
+
+            each copy in bookInstance
+                p #[strong Book Instance Id : ]
+                    a(href=copy.url) #{copy._id}                 
+    else 
+        p Do you really wants to delete this Book Instance?
+
+    form(method="POST")
+        div.form-group
+            input#bookinstanceid.form-control(type='hidden', name='bookinstanceid', value=bookid)
+
+            button.btn.btn-primary(type='submit') Delete

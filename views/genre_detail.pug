@@ -1,0 +1,30 @@
+extend layout 
+
+block content 
+    h1 Genre: #{genre.name}
+
+    div(style='margin-left: 20px; margin-top: 20px')
+        h4 books 
+
+        dl 
+            each book in genre_books 
+                dt 
+                    a(href=book.url) #{book.title}
+                dd #{book.summary}
+            
+            else    
+                p This genre has no books
+
+    hr
+
+    div.Control(style="display:flex; ")
+        p 
+            button.btn.btn-primary
+                a(href=genre.url+'/delete' style='color:white;') Delete Genre
+
+        p(style="margin-left: 20px")
+            button.btn.btn-primary 
+                a(href=genre.url+'/update' style='color:white;') Update Genre
+
+
+    
