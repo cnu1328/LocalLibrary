@@ -1,16 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #[em LocalLibrary], a very basic Express website developed as a tutorial example on the Mozilla Developer Network.
+  .home 
+    h1= title
+    p(class="local") #[strong Welcome to #[em Local Library Home ] - Your Gateway to a World of Knowledge and Adventure!]
 
-  h2 Dynamic content
+    p At Local Library Home, we've curated a virtual space where the magic of books comes alive. Immerse yourself in the captivating world of literature, where you can not only discover and read the summaries of a vast collection of books but also explore the brilliant minds behind them – the authors.
 
-  h4 the library has the following record counts: 
+    p Feel the power of creation as you embark on a journey to craft your own literary haven. Create new authors and breathe life into their stories, or forge entirely new worlds with our easy-to-use features for crafting books and genres. Whether you're a seasoned writer or a budding storyteller, Local Library Home is here to empower your creativity.
+  
+    p But that's not all – we understand the importance of sharing your literary gems with a community. Local Library Home provides a platform for creating and managing book instances, allowing you to share your favorite reads and recommendations with fellow book enthusiasts.
 
-  ul 
-    li #[strong Books:] !{book_count}
-    li #[strong Copies:] !{book_instance_count}
-    li #[strong Copies Available:] !{book_instance_available_count}
-    li #[strong Authors:] !{author_count}
-    li #[strong Genres:] !{genre_count}
+    p Join our vibrant community of readers, writers, and storytellers. Your adventure begins here at Local Library Home, where the love for books knows no bounds. Happy reading! 
+
+    h2 The library has the following record counts: 
+
+    ul 
+      li #[strong Total Number of Books ] #[strong !{book_count}]
+      li #[strong Total Number of Copies ] #[strong !{book_instance_count}]
+      li #[strong Total Number of Copies Available ] #[strong !{book_instance_available_count}]
+      li #[strong Total Number of Authors ] #[strong !{author_count}]
+      li #[strong Total Number of Genres ] #[strong !{genre_count}]
