@@ -19,16 +19,16 @@ block content
         if book_instance_detail.status != 'Available'    
             p #[strong Due Back : ] #{book_instance_detail.due_back_formatted}
 
-    hr
+    hr.hr
 
     div.Control(style="display:flex; ")
-        p 
-            button.btn.btn-primary
-                a(href=book_instance_detail.url+'/delete' style='color:white;') Delete Book Instance
+    
+        button.btn.btn-primary
+            a(href=book_instance_detail.url+'/delete' style='color:white;') Delete Book Instance
 
-        p(style="margin-left: 20px")
-            button.btn.btn-primary 
-                a(href=book_instance_detail.url+'/update' style='color:white;') Update Book Instance
+    
+        button.btn.btn-primary(style="margin-left: 20px;")
+            a(href=book_instance_detail.url+'/update' style='color:white;') Update Book Instance
 
 
 
