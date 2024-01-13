@@ -1,10 +1,10 @@
 extend layout 
 
 block content 
-    h1= title 
+    
 
     form(method='POST' action='')
-
+        h1= title 
         div.form-group
             label(for='first_name') First Name: 
             input#first_name.form-control(type='text' placeholder='Enter First Name...' name='first_name' required='true' value=(undefined === author?'' : author.first_name))
